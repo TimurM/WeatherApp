@@ -1,22 +1,22 @@
 (function() {
-    
-    var app = angular.module('customersApp', ['ngRoute', 'ngAnimate']);
-    
+
+    var app = angular.module('weatherApp', ['ngRoute']);
+
     app.config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                controller: 'CustomersController',
-                templateUrl: 'app/views/customers.html'
+                controller: 'WeatherController',
+                templateUrl: 'app/views/weather.html'
             })
-            .when('/orders/:customerId', {
-                controller: 'OrdersController',
-                templateUrl: 'app/views/orders.html'
+            .when('/forecast', {
+                controller: 'forecastController',
+                templateUrl: 'app/views/forecast.html'
             })
-            .when('/orders', {
-                controller: 'AllOrdersController',
-                templateUrl: 'app/views/allorders.html'
+            .when('/past-weather', {
+                controller: 'pastWeatherController',
+                templateUrl: 'app/views/pastWeather.html'
             })
             .otherwise( { redirectTo: '/' } );
     });
-    
+
 }());
