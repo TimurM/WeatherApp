@@ -22,6 +22,7 @@
             + start_date
             + '&enddate='
             + end_date
+            + '&tp=24'
             + '&format=json');
         };
 
