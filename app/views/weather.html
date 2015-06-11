@@ -1,24 +1,55 @@
-<h2>Forecast</h2>
-<br />
-Filter: <input type="text" ng-model="forecastFilter.name" />
-<br /><br />
-<table class="table table-striped">
-    <tr>
-        <th ng-click="doSort('name')">Date</th>
-        <th ng-click="doSort('city')">Max Temp</th>
-        <th ng-click="doSort('orderTotal')">Low Temp</th>
-    </tr>
-    <tr ng-repeat="item in forecast" class="repeat-animation">
-        <!-- <td>{{ item.current_condition }}</td> -->
-        <!-- <td>{{ item.request }}</td> -->
-        <td>{{ item.date }}</td>
-        <td>{{ item.maxtempF }}</td>
-        <td>{{ item.mintempF }}</td>
-        <!-- <td>{{ cust.city }}</td>
-        <td>{{ cust.orderTotal | currency }}</td>
-        <td>{{ cust.joined | date }}</td>
-        <td><a href="#/orders/{{ cust.id }}">View Orders</a></td>
-        <td class="center"><span class="glyphicon glyphicon-remove delete" ng-click="deleteCustomer(cust.id)"></span></td> -->
-    </tr>
-</table>
-<br />
+<div class="container">
+  <div class="row">
+    <div class="current-city col-sm-3">
+      <span>Weather in your city</span>
+      <current-weather datasource="currentWeather"></current-weather>
+    </div>
+
+  <div class="col-sm-8 col-sm-offset-1">
+      <h2>Forecast</h2>
+      <div class="container">
+        <div class="row">
+          <form class="simple-form col-sm-4">
+              <label>Search City:
+                <input type="text" ng-model="name" placeholder="current location" />
+              </label>
+              <input type="submit" ng-click="search(name)" class='btn btn-search'/>
+
+          </form>
+
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-search" ng-click="expand()">Historical Search</button>
+          </div>
+
+        </div>
+
+      <div class="row historical-dates">
+        <div class="col-sm-8">
+          <form class="simple-form" ng-show='historyToggle'>
+              <label>Search Historical Weather:
+              </label>
+              <input type="text" ng-model="weather.location" placeholder="current location"/>
+              <input type="date" ng-model="weather.start_date"
+              placeholder="start date"  min="2015-04-01"/>
+              <input type="date" ng-model="weather.end_date" placeholder="end date" />
+              <input type="submit" class='btn btn-search' ng-click="pastWeather(weather)"/>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <span class="sunny-days">Precentage of Sunny Days: {{ precentSunnyDays }}%</span>
+      </div>
+
+      <div id="chart" class="row">
+        <div class="col-sm-8">
+          <canvas id="line" class="chart chart-line" data="data"
+            labels="labels" legend="true" series="series"
+            click="onClick">
+          </canvas>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

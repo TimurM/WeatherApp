@@ -5,19 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/angular-chart.css" rel="stylesheet" >
 </head>
-<body>
+<body ng-controller="WeatherController">
+  <nav class="navbar navbar-default">
+        <span>Weather App</span>
+  </nav>
+
+    <header></header>
+
     <main>
-        <h1>Welcome to the Weather App</h1>
         <div ng-view class=""></div>
     </main>
 
     <script src="scripts/angular.js"></script>
     <script src="scripts/angular-route.js"></script>
+    <script src="scripts/Chart.js"></script>
+    <script src="scripts/angular-chart.js"></script>
+    <script src="scripts/moment.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/controllers/forecastController.js"></script>
     <script src="app/controllers/pastWeatherController.js"></script>
     <script src="app/controllers/weatherController.js"></script>
+    <script src="app/controllers/chartsController.js"></script>
     <script src="app/services/weatherFactory.js"></script>
+    <script src="app/directives/currentWeather.js"></script>
 </body>
 </html>
