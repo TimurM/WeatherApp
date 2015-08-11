@@ -34,7 +34,7 @@
         $scope.search = function(location) {
           var location = location || $scope.location;
 
-          weatherFactory.getForecast(location, '20')
+          weatherFactory.getForecast(location, '5')
              .success(function(forecast) {
                $scope.currentWeather = forecast.data.current_condition[0];
                parseWeatherData(forecast)

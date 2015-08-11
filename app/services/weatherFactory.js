@@ -4,7 +4,7 @@
         var factory = {};
 
         factory.getForecast = function(location, num_days){
-            return $http.get('http://api.worldweatheronline.com/premium/v1/weather.ashx?key=86be0dbccf2e95c06fbc644c71a22&q='
+            return $http.get('http://api.worldweatheronline.com/free/v2/weather.ashx?key=9d5e8176302f25e92b3a5f4780f01&q='
             + location
             + '&num_of_days='
             + num_days
@@ -13,7 +13,7 @@
         };
 
         factory.getPastWeather = function(location, start_date, end_date){
-            return $http.get('https://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=86be0dbccf2e95c06fbc644c71a22&q='
+            return $http.get('http://api.worldweatheronline.com/free/v2/past-weather.ashx?key=9d5e8176302f25e92b3a5f4780f01&q='
             + location
             + '&date='
             + start_date
